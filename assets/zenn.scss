@@ -1,0 +1,86 @@
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --c-blue-200: #374151 !important;
+        --c-gray-100: #374151 !important;
+        --c-gray-200: #4b5563 !important;
+        --c-gray-300: #121212 !important;
+        --c-text-body: #fff !important;
+        --c-bg-base: #121212 !important;
+        --c-bg-secondary: #444444 !important;
+        --c-text-low-priority: #fff !important;
+        --c-text-lower-priority: #fff !important;
+    }
+
+    $blue-200-classes: "ContentStickyNavForMobile_container__",
+        "ArticleMobileHeaderToc_tocContainer__",
+        "PublicationInfoForDesktop_container__",
+        "ThreadItemContent_parentItem__",
+        "ArticleComments_commentFormLogin__",
+        "Button_secondary__",
+        "ScrapThread_loginCta__",
+        "View_sidebar__";
+
+    @each $class in $blue-200-classes {
+        [class^="#{$class}"] {
+            background: var(--c-blue-200) !important;
+        }
+    }
+
+    $gray-200-classes: "ArticleList_emoji__", "EmbedBaseLinkCard_container__";
+
+    @each $class in $gray-200-classes {
+        [class^="#{$class}"] {
+            background: var(--c-gray-200) !important;
+        }
+    }
+
+    $bg-base-classes: "ExploreNav_nav__", "View_articlesTechContainer__", "TopicScraps_container__", "View_articlesIdeaContainer__", "View_featuredContainer__", "LoginCta_cta__";
+
+    @each $class in $bg-base-classes {
+        [class^="#{$class}"] {
+            background: var(--c-bg-base) !important;
+        }
+    }
+
+    $gray-300-classes: "AppModal_buttonClose__", "LikeButton_button__";
+
+    @each $class in $gray-300-classes {
+        [class^="#{$class}"] {
+            background: var(--c-gray-300) !important;
+        }
+    }
+
+
+    [class^="ArticleList_link__"]:visited {
+        color: #969696 !important;
+    }
+
+    [class^="ArticleCard_mainLink__"]:visited {
+        color: #969696 !important;
+    }
+
+    $active-hover-background: var(--c-gray-300);
+    $normal-background: var(--c-gray-100);
+
+    @mixin active-hover {
+
+        &[aria-current="page"],
+        &:hover {
+            background: $active-hover-background !important;
+        }
+    }
+
+    [class^="ExploreNav_childNavLink__"] {
+        @include active-hover;
+        background: $normal-background !important;
+    }
+
+    [class^="TabLinkGroup_link__"] {
+        @include active-hover;
+    }
+
+    [class^="TabLinkGroup_container__"] {
+        background: $normal-background !important;
+    }
+}
