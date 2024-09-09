@@ -1,7 +1,10 @@
 import { defineConfig } from 'wxt';
 
-// See https://wxt.dev/api/config.html
 export default defineConfig({
-  modules: ['@wxt-dev/module-react'],
-  manifest:{}
+  manifest:{
+    manifest_version: 3,
+    name: "Zenn Dark Reader",
+    version: "0.1.0",
+    description: "zenn.devをダークモードに対応させる拡張機能です。"
+  }
 });
