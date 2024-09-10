@@ -1,25 +1,53 @@
 @media (prefers-color-scheme: dark) {
-
     :root {
-        --c-blue-200: #374151 !important;
-        --c-gray-100: #374151 !important;
+        --c-blue-200: #3c4347 !important;
+        --c-blue-500: #2196f3 !important;
+        --c-gray-100: #3c4347 !important;
         --c-gray-200: #4b5563 !important;
-        --c-gray-300: #121212 !important;
+        --c-gray-300: #303030 !important;
         --c-text-body: #fff !important;
-        --c-bg-base: #121212 !important;
+        --c-bg-base: #303030 !important;
         --c-bg-secondary: #444444 !important;
         --c-text-low-priority: #fff !important;
         --c-text-lower-priority: #fff !important;
     }
 
-    $blue-200-classes: "ContentStickyNavForMobile_container__",
+    $blue-200-classes: (
+        "ContentStickyNavForMobile_container__",
         "ArticleMobileHeaderToc_tocContainer__",
         "PublicationInfoForDesktop_container__",
         "ThreadItemContent_parentItem__",
         "ArticleComments_commentFormLogin__",
         "Button_secondary__",
         "ScrapThread_loginCta__",
-        "View_sidebar__";
+        "View_sidebar__"
+    );
+
+    $gray-100-classes: ("PublicationFixedSentences_container__");
+
+    $gray-200-classes: (
+        "ArticleList_emoji__",
+        "EmbedBaseLinkCard_container__",
+        "ArticleCard_emojiContainer__",
+        "details-content"
+    );
+
+    $bg-base-classes: (
+        "ExploreNav_nav__",
+        "View_articlesTechContainer__",
+        "View_articlesIdeaContainer__",
+        "View_featuredContainer__",
+        "View_navContainer__",
+        "View_sectionTech__",
+        "View_sectionFeatured__",
+        "View_sectionIdea__",
+        "View_rowsTitle__",
+        "View_contents__",
+        "LoginCta_cta__",
+        "TopicScraps_container__"
+    );
+
+    $gray-300-classes: ("AppModal_buttonClose__", "LikeButton_button__");
 
     @each $class in $blue-200-classes {
         [class^="#{$class}"] {
@@ -27,15 +55,21 @@
         }
     }
 
-    $gray-200-classes: "ArticleList_emoji__", "EmbedBaseLinkCard_container__";
+    @each $class in $gray-100-classes {
+        [class^="#{$class}"] {
+            background: var(--c-gray-100) !important;
+        }
+    }
 
     @each $class in $gray-200-classes {
         [class^="#{$class}"] {
             background: var(--c-gray-200) !important;
+
+            a {
+                color: var(--c-blue-500) !important;
+            }
         }
     }
-
-    $bg-base-classes: "ExploreNav_nav__", "View_articlesTechContainer__", "TopicScraps_container__", "View_articlesIdeaContainer__", "View_featuredContainer__", "LoginCta_cta__";
 
     @each $class in $bg-base-classes {
         [class^="#{$class}"] {
@@ -43,19 +77,58 @@
         }
     }
 
-    $gray-300-classes: "AppModal_buttonClose__", "LikeButton_button__";
-
     @each $class in $gray-300-classes {
         [class^="#{$class}"] {
             background: var(--c-gray-300) !important;
         }
     }
 
-
-    [class^="ArticleList_link__"]:visited {
-        color: #969696 !important;
+    th,
+    td,
+    summary {
+        background: var(--c-gray-100) !important;
     }
 
+    th {
+        background: var(--c-gray-200) !important;
+    }
+
+    blockquote,
+    [class^="details-content"] ::marker,
+    [class^="footnote"],
+    [class^="footnote"] ::marker {
+        color: #b0b0b0 !important;
+    }
+
+    [class="msg message"] {
+        background: #fbc02d !important;
+        color: #000000 !important;
+
+        .msg-symbol {
+            background: #ffffff !important;
+            color: #fbc02d !important;
+        }
+    }
+
+    [class="msg alert"] {
+        background: #cf6679 !important;
+        color: #000000 !important;
+
+        .msg-symbol {
+            background: #ffffff !important;
+            color: #cf6679 !important;
+        }
+    }
+
+    [class="token punctuation"] {
+        color: #80cbc4 !important;
+    }
+
+    [class="token comment"] {
+        color: #b0bec5 !important;
+    }
+
+    [class^="ArticleList_link__"]:visited,
     [class^="ArticleCard_mainLink__"]:visited {
         color: #969696 !important;
     }
@@ -64,22 +137,18 @@
     $normal-background: var(--c-gray-100);
 
     @mixin active-hover {
-
         &[aria-current="page"],
         &:hover {
             background: $active-hover-background !important;
         }
     }
 
-    [class^="ExploreNav_childNavLink__"] {
-        @include active-hover;
-        background: $normal-background !important;
-    }
-
+    [class^="ExploreNav_childNavLink__"],
     [class^="TabLinkGroup_link__"] {
         @include active-hover;
     }
 
+    [class^="ExploreNav_childNavLink__"],
     [class^="TabLinkGroup_container__"] {
         background: $normal-background !important;
     }
