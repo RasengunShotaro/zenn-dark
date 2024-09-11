@@ -1,6 +1,6 @@
 {
   "name": "Zenn Dark Reader",
-  "description": "zenn.devをダークモーに対応させる拡張機能",
+  "description": "zenn.devをダークモードに対応させる拡張機能",
   "private": true,
   "version": "0.0.0",
   "type": "module",
